@@ -7,7 +7,7 @@ set -u
 
 NUMFILES=10
 WRITESTR=AELD_IS_FUN
-WRITEDIR=/tmp/aeld-data
+WRITEDIR=tmp/aeld-data
 username=$(cat conf/username.txt)
 
 if [ $# -lt 3 ]
@@ -33,11 +33,11 @@ rm -rf "${WRITEDIR}"
 
 # create $WRITEDIR if not assignment1
 assignment=`cat ../conf/assignment.txt`
-
+echo "1 $WRITEDIR"
 if [ $assignment != 'assignment1' ]
 then
 	mkdir -p "$WRITEDIR"
-
+echo "2"
 	#The WRITEDIR is in quotes because if the directory path consists of spaces, then variable substitution will consider it as multiple argument.
 	#The quotes signify that the entire string in WRITEDIR is a single string.
 	#This issue can also be resolved by using double square brackets i.e [[ ]] instead of using quotes.
